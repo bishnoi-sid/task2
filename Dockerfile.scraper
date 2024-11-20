@@ -1,0 +1,14 @@
+# Use a Python base image
+FROM python:3.9-slim
+
+# Set working directory
+WORKDIR /scraper
+
+# Copy the scraper code into the container
+COPY scraper.py /scraper/
+
+# Install requests library
+RUN pip install requests
+
+# Command to run the scraper
+CMD ["python", "scraper.py"]

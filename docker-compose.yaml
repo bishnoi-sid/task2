@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  application:
+    image: "siddhantbishnoi/siddhant-public:latest"
+    container_name: application
+    ports:
+      - "5000:5000"  # Expose the application container's metrics port
+
+  scraper:
+    build:
+      context: .
+      dockerfile: Dockerfile.scraper
+    container_name: scraper
+    depends_on:
+      - application
